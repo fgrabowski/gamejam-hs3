@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 
-public class HitObstacles : MonoBehaviour {
+public class Death : MonoBehaviour {
 	public AudioSource audioSource = null;
 	public AudioClip audioClip = null;
 	public GameObject restart = null;
