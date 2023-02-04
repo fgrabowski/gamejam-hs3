@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public AudioSource jumpSound;
+    public AudioSource landSound;
+    public AudioSource walkSound;
 
     public float jumpFrequencyLimit = 1.0f;
     public float jumpCountLimit = 2;
@@ -14,13 +17,13 @@ public class PlayerController : MonoBehaviour
     private float jumpTimer;
     private int jumpCounter;
 
-
     // Start is called before the first frame update
     void Start()
     {
         jumpTimer = Time.fixedTime - jumpFrequencyLimit;
         jumpCounter = 0;
         isGrounded = false;
+        
     }
 
     // Update is called once per frame
@@ -29,6 +32,7 @@ public class PlayerController : MonoBehaviour
         // If Player is on the ground...
         if (isGrounded)
         {
+            walkSound.Play();
             Debug.Log(transform.position.y);
             // ...reset the jump counter
             jumpCounter = 0;
@@ -36,6 +40,13 @@ public class PlayerController : MonoBehaviour
             Rigidbody2D rb = gameObject.GetComponent<Rigidbody2D>();
             // ... get rid of the downforce
             rb.AddForce(Vector2.up*rb.velocity.y);
+            
+            walkSound.Play();
+
+            }
+        else
+        {
+            walkSound.Pause();
         }
 
         // If W is pressed,
@@ -59,6 +70,7 @@ public class PlayerController : MonoBehaviour
         //If player is colliding with the ground layer...
         if (collision.collider.tag == "Ground")
             // ...set the player to grounded
+            landSound.Play();
             isGrounded = true;
     }
 
@@ -68,6 +80,7 @@ public class PlayerController : MonoBehaviour
         if (collision.collider.tag == "Ground")
             // ...unset isGrounded
             isGrounded = false;
+            jumpSound.Play();
     }
 
 }
