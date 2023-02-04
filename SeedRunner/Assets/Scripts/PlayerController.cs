@@ -32,7 +32,6 @@ public class PlayerController : MonoBehaviour
         // If Player is on the ground...
         if (isGrounded)
         {
-            walkSound.Play();
             Debug.Log(transform.position.y);
             // ...reset the jump counter
             jumpCounter = 0;
@@ -41,12 +40,6 @@ public class PlayerController : MonoBehaviour
             // ... get rid of the downforce
             rb.AddForce(Vector2.up*rb.velocity.y);
             
-            walkSound.Play();
-
-            }
-        else
-        {
-            walkSound.Pause();
         }
 
         // If W is pressed,
