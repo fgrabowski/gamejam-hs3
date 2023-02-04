@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 5.0f;
 
     public bool isGrounded;
+    public bool isPoweredUp;
 
     private float jumpTimer;
     private int jumpCounter;
@@ -60,6 +61,15 @@ public class PlayerController : MonoBehaviour
         if (collision.collider.tag == "Ground")
             // ...set the player to grounded
             isGrounded = true;
+
+        //If player is colliding with a powerup...
+        if (collision.collider.tag == "Powerup")
+        {
+            // ...destroy the powerup
+            Destroy(collision.collider.gameObject);
+            // ...power up the player
+            isPoweredUp = true;
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
