@@ -10,14 +10,12 @@ public class PipeSpawner : MonoBehaviour
     public float maxTime = 1;
     private float timer = 0;
     public GameObject root;
-
-    // Start is called before the first frame update
+    
     void Start()
     {
         GameObject newroot = Instantiate(root);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(timer > maxTime)
@@ -26,7 +24,7 @@ public class PipeSpawner : MonoBehaviour
             GameObject newroot = Instantiate(root);
             newroot.transform.position = transform.position;
             Destroy(newroot, 20);
-            maxTime = Random.Range(3, 15);
+            maxTime = Random.Range(3, 8);
         }
         
         timer += Time.deltaTime;
