@@ -1996,6 +1996,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9114718917607795467, guid: be843a7197bef1e44bdbb2bc846e73cc, type: 3}
+      propertyPath: DeathSound
+      value: 
+      objectReference: {fileID: 1459611298}
+    - target: {fileID: 9114718917607795467, guid: be843a7197bef1e44bdbb2bc846e73cc, type: 3}
       propertyPath: DeathScreen
       value: 
       objectReference: {fileID: 1885966588}
