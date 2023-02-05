@@ -7,8 +7,11 @@ using UnityEngine.SceneManagement;
 public class KillPlayer : MonoBehaviour
 {
     public GameObject DeathScreen;
+    
+    public AudioSource DeathSound;
     public void Restart()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("MainGame");
     }
     
@@ -18,6 +21,7 @@ public class KillPlayer : MonoBehaviour
         {
             Debug.Log("Hit");
             DeathScreen.SetActive(true);
+            Time.timeScale = 0;
         }
 
     }
