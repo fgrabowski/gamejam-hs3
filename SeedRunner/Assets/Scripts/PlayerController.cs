@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
         // If Player is on the ground...
         if (isGrounded)
         {
-            Debug.Log(transform.position.y);
+            //Debug.Log(transform.position.y);
             // ...reset the jump counter
             jumpCounter = 0;
             // ...set the position to the ground position
